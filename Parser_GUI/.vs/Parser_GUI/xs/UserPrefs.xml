@@ -1,0 +1,37 @@
+﻿<Properties StartupConfiguration="{B4265F27-B239-4444-AB47-7558700ABE96}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Parser__GUI PreferredExecutionTarget="MyAppleMacCatalystID" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Resources/AppIcon/appicon.svg">
+    <Files>
+      <File FileName="BoxHandlers.cs" />
+      <File FileName="Communicate.cs" />
+      <File FileName="MauiProgram.cs" />
+      <File FileName="MainPage.xaml" />
+      <File FileName="MainPage.xaml.cs" />
+      <File FileName="Structs.cs" />
+      <File FileName="AppShell.xaml" />
+      <File FileName="Resources/AppIcon/ucla.svg" Line="16" Column="6" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Parser_GUI" expanded="True">
+            <Node name="Parser_GUI">
+              <Node name="Resources" expanded="True">
+                <Node name="AppIcon" expanded="True">
+                  <Node name="appicon.svg" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

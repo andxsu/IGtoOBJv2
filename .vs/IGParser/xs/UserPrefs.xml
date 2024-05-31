@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="Mac">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../../usr/local/share/dotnet/packs/Microsoft.MacCatalyst.Sdk/16.4.7141/tools/msbuild/iOS/Xamarin.Shared.targets">
+    <Files>
+      <File FileName="../../../../../usr/local/share/dotnet/packs/Microsoft.MacCatalyst.Sdk/16.4.7141/tools/msbuild/iOS/Xamarin.Shared.targets" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="IGParser" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.IGParser PreferredExecutionTarget="MyAppleMacCatalystID" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Mac" Name="Mac">
+      <Items>
+        <StartupItem ItemId="{E151A6F4-47D6-415D-A513-47B0B7846BE9}" ItemName="Parser_GUI" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
+</Properties>

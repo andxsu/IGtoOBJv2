@@ -1,0 +1,34 @@
+﻿<Properties>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="Parser_GUI/MauiProgram.cs" />
+      <File FileName="Parser_GUI/MainPage.xaml.cs" />
+      <File FileName="../../../../../usr/local/share/dotnet/sdk/7.0.403/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" />
+      <File FileName="Parser_GUI/MainPage.xaml" />
+      <File FileName="Parser_GUI/App.xaml" />
+      <File FileName="Parser_GUI/AppShell.xaml" />
+      <File FileName="Parser_GUI/App.xaml.cs" />
+      <File FileName="Parser_GUI/Platforms/MacCatalyst/AppDelegate.cs" />
+      <File FileName="Parser_GUI/Platforms/MacCatalyst/Program.cs" />
+      <File FileName="../../../../../usr/local/share/dotnet/packs/Microsoft.Maui.Resizetizer.Sdk/7.0.101/targets/Microsoft.Maui.Resizetizer.targets" Line="9" Column="7" />
+      <File FileName="Parser_GUI/Platforms/MacCatalyst/Info.plist" />
+      <File FileName=".vs/Parser_GUI/xs/project-cache/Parser_GUI-Debug-net6.0-maccatalyst16.4.json" Line="1" Column="20" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Parser_GUI" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <DisabledProjects>
+    <String>Parser_GUI/Parser_GUI.csproj</String>
+  </DisabledProjects>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

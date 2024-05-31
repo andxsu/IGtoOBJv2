@@ -1,0 +1,13 @@
+﻿Started by getting the run name to display from two pickers.
+Once I have that filename, it's just a matter of feeding it through the rest of the code.
+Copied Structs, LineHandlers with minimal fuss. BoxHandlers gave an error with the ellipsoid function
+but I just put it inside the class and that got rid of the errors.
+Same with Communicate. Everything works pretty well but I just put everything
+into the one second pick event.
+
+Instead, I'm going to have a confirm button which will then run all that stuff.
+
+
+adb
+1. adb devices to check connected device
+1. adb push to
