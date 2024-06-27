@@ -1,37 +1,36 @@
 ﻿<Properties StartupConfiguration="{B4265F27-B239-4444-AB47-7558700ABE96}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Parser__GUI PreferredExecutionTarget="MyAppleMacCatalystID" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Resources/AppIcon/appicon.svg">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="MainPage.xaml">
     <Files>
-      <File FileName="BoxHandlers.cs" />
-      <File FileName="Communicate.cs" />
-      <File FileName="MauiProgram.cs" />
-      <File FileName="MainPage.xaml" />
+      <File FileName="MainPage.xaml" Line="41" Column="15" />
       <File FileName="MainPage.xaml.cs" />
+      <File FileName="Unzip.cs" />
+      <File FileName="MauiProgram.cs" />
+      <File FileName="../../../../../.nuget/packages/communitytoolkit.maui/6.0.0/readme.txt" />
       <File FileName="Structs.cs" />
-      <File FileName="AppShell.xaml" />
-      <File FileName="Resources/AppIcon/ucla.svg" Line="16" Column="6" />
+      <File FileName="Platforms/MacCatalyst/Program.cs" />
+      <File FileName="Communicate.cs" />
+      <File FileName="BoxHandlers.cs" />
+      <File FileName="LineHandlers.cs" />
+      <File FileName="Log.txt" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Parser_GUI" expanded="True">
+          <Node name="Parser_GUI">
             <Node name="Parser_GUI">
-              <Node name="Resources" expanded="True">
-                <Node name="AppIcon" expanded="True">
-                  <Node name="appicon.svg" selected="True" />
-                </Node>
-              </Node>
+              <Node name="MainPage.xaml" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Parser__GUI PreferredExecutionTarget="MyAppleMacCatalystID" />
 </Properties>

@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using System.Xml.Linq;
 using System.Globalization;
 using Parser_GUI;
-using System;
+using System.Text;
 
 namespace Parser_GUI
 {
@@ -72,28 +72,13 @@ namespace Parser_GUI
             var yuh = recHitFractionsParse();
             recHitFractions = assignRecHitFractions(yuh);
             makeSuperClusters();
-            try
-            {
-                vertexDatas = vertexParse();
-            }
-            catch (Exception ex)
-            {
-                // Handle the exception
-                Console.WriteLine($"Error: {ex.Message}");
-            }
+
+            vertexDatas = vertexParse();
             int i = 0;
-            try
+            foreach (Vertex v in vertexDatas)
             {
-                foreach (Vertex v in vertexDatas)
-                {
-                    GenerateEllipsoidObj($@"{eventTitle}\vertices.obj", vertexDatas, 3.0);
-                    i += 1;
-                }
-            }
-            catch (Exception ex)
-            {
-                // Handle the exception
-                Console.WriteLine($"Error: {ex.Message}");
+                GenerateEllipsoidObj($@"{eventTitle}\vertices.obj", vertexDatas, 3.0);
+                i += 1;
             }
 
         }
@@ -198,13 +183,16 @@ namespace Parser_GUI
                 index++;
                 counter += 8;
             }
-            File.WriteAllText($"{eventTitle}\\7_MuonChambers_V1.obj", String.Empty);
-            File.WriteAllLines($"{eventTitle}\\7_MuonChambers_V1.obj", dataStrings);
+            File.WriteAllText($"{eventTitle}/7_MuonChambers_V1.obj", String.Empty);
+            File.WriteAllLines($"{eventTitle}/7_MuonChambers_V1.obj", dataStrings);
         }
         public List<CalorimetryData> genericCaloParse(string name, double scale)
         {
             List<CalorimetryData> dataList = new List<CalorimetryData>();
-
+            if (data["Collections"][name] == null)
+            {
+                return dataList;
+            }
             foreach (var item in data["Collections"][name])
             {
                 CalorimetryData caloItem = new CalorimetryData();
@@ -234,12 +222,12 @@ namespace Parser_GUI
             HFData = genericCaloParse("HFRecHits_V2", HFSCALE);
             if (HFData.Count == 0)
             {
-                File.WriteAllText($"{eventTitle}\\6_HFRecHits_V2.obj", String.Empty);
+                File.WriteAllText($"{eventTitle}/6_HFRecHits_V2.obj", String.Empty);
                 return;
             }
             List<string> dataList = generateCalorimetryBoxes(HFData);
-            File.WriteAllText($"{eventTitle}\\6_HFRecHits_V2.obj", String.Empty);
-            File.WriteAllLines($"{eventTitle}\\6_HFRecHits_V2.obj", dataList);
+            File.WriteAllText($"{eventTitle}/6_HFRecHits_V2.obj", String.Empty);
+            File.WriteAllLines($"{eventTitle}/6_HFRecHits_V2.obj", dataList);
         }
         public void makeHBRec()
         {
@@ -247,11 +235,11 @@ namespace Parser_GUI
             List<string> dataList = generateCalorimetryBoxes(HBData);
             if (HBData.Count == 0)
             {
-                File.WriteAllText($"{eventTitle}\\6_HBRecHits_V2.obj", String.Empty);
+                File.WriteAllText($"{eventTitle}/6_HBRecHits_V2.obj", String.Empty);
                 return;
             }
-            File.WriteAllText($"{eventTitle}\\6_HBRecHits_V2.obj", String.Empty);
-            File.WriteAllLines($"{eventTitle}\\6_HBRecHits_V2.obj", dataList);
+            File.WriteAllText($"{eventTitle}/6_HBRecHits_V2.obj", String.Empty);
+            File.WriteAllLines($"{eventTitle}/6_HBRecHits_V2.obj", dataList);
         }
         public void makeHERec()
         {
@@ -259,66 +247,70 @@ namespace Parser_GUI
             List<string> dataList = generateCalorimetryBoxes(HEData);
             if (HEData.Count == 0)
             {
-                File.WriteAllText($"{eventTitle}\\6_HERecHits_V2.obj", String.Empty);
+                File.WriteAllText($"{eventTitle}/6_HERecHits_V2.obj", String.Empty);
                 return;
             }
-            File.WriteAllText($"{eventTitle}\\6_HERecHits_V2.obj", String.Empty);
-            File.WriteAllLines($"{eventTitle}\\6_HERecHits_V2.obj", dataList);
+            File.WriteAllText($"{eventTitle}/6_HERecHits_V2.obj", String.Empty);
+            File.WriteAllLines($"{eventTitle}/6_HERecHits_V2.obj", dataList);
         }
         public void makeHORec()
         {
             HOData = genericCaloParse("HORecHits_V2", HOSCALE);
-            List<string> dataList = generateCalorimetryTowers(HOData);
+            List<string> dataList = generateCalorimetryData(HOData);
             if (HOData.Count == 0)
             {
-                File.WriteAllText($"{eventTitle}\\6_HORecHits_V2.obj", String.Empty);
+                File.WriteAllText($"{eventTitle}/6_HORecHits_V2.obj", String.Empty);
 
                 return;
             }
-            File.WriteAllText($"{eventTitle}\\6_HORecHits_V2.obj", String.Empty);
-            File.WriteAllLines($"{eventTitle}\\6_HORecHits_V2.obj", dataList);
+            File.WriteAllText($"{eventTitle}/6_HORecHits_V2.obj", String.Empty);
+            File.WriteAllLines($"{eventTitle}/6_HORecHits_V2.obj", dataList);
         }
         public void makeEBRec()
         {
             EBData = genericCaloParse("EBRecHits_V2", EBSCALE);
-            List<string> dataList = generateCalorimetryTowers(EBData);
+            List<string> dataList = generateCalorimetryData(EBData);
             if (EBData.Count == 0)
             {
-                File.WriteAllText($"{eventTitle}\\5_EBRecHits_V2.obj", String.Empty);
+                File.WriteAllText($"{eventTitle}/5_EBRecHits_V2.obj", String.Empty);
                 return;
             }
-            File.WriteAllText($"{eventTitle}\\5_EBRecHits_V2.obj", String.Empty);
-            File.WriteAllLines($"{eventTitle}\\5_EBRecHits_V2.obj", dataList);
+            File.WriteAllText($"{eventTitle}/5_EBRecHits_V2.obj", String.Empty);
+            File.WriteAllLines($"{eventTitle}/5_EBRecHits_V2.obj", dataList);
         }
         public void makeEERec()
         {
             EEData = genericCaloParse("EERecHits_V2", EESCALE);
-            List<string> dataList = generateCalorimetryTowers(EEData);
+            List<string> dataList = generateCalorimetryData(EEData);
             if (EEData.Count == 0)
             {
-                File.WriteAllText($"{eventTitle}\\5_EERecHits_V2.obj", String.Empty);
+                File.WriteAllText($"{eventTitle}/5_EERecHits_V2.obj", String.Empty);
                 return;
             }
-            File.WriteAllText($"{eventTitle}\\5_EERecHits_V2.obj", String.Empty);
-            File.WriteAllLines($"{eventTitle}\\5_EERecHits_V2.obj", dataList);
+            File.WriteAllText($"{eventTitle}/5_EERecHits_V2.obj", String.Empty);
+            File.WriteAllLines($"{eventTitle}/5_EERecHits_V2.obj", dataList);
         }
         public void makeESRec()
         {
             ESData = genericCaloParse("ESRecHits_V2", ESSCALE);
-            List<string> dataList = generateCalorimetryTowers(ESData);
+            List<string> dataList = generateCalorimetryData(ESData);
             if (ESData.Count == 0)
             {
-                File.WriteAllText($"{eventTitle}\\5_ESRecHits_V2.obj", String.Empty);
+                File.WriteAllText($"{eventTitle}/5_ESRecHits_V2.obj", String.Empty);
 
                 return;
             }
-            File.WriteAllText($"{eventTitle}\\5_ESRecHits_V2.obj", String.Empty);
-            File.WriteAllLines($"{eventTitle}\\5_ESRecHits_V2.obj", dataList);
+            File.WriteAllText($"{eventTitle}/5_ESRecHits_V2.obj", String.Empty);
+            File.WriteAllLines($"{eventTitle}/5_ESRecHits_V2.obj", dataList);
         }
         public List<JetData> jetParse()
         {
             int idNumber = 0;
             List<JetData> datalist = new List<JetData>();
+            if (data["Collections"]["PFJets_V1"] == null)
+            {
+                return datalist;
+            }
             foreach (var item in data["Collections"]["PFJets_V1"])
             {
 
@@ -527,7 +519,7 @@ namespace Parser_GUI
             }
             return geometryData;
         }
-        public List<string> generateCalorimetryTowers(List<CalorimetryData> inputData)
+        public List<string> generateCalorimetryData(List<CalorimetryData> inputData)
         {
             List<string> geometryData = new List<string>();
             int counter = 1;
@@ -606,7 +598,7 @@ namespace Parser_GUI
             {
                 var collection = data["Collections"][CALSET];
 
-                if (collection.HasValues == false)
+                if (collection == null || collection.HasValues == false)
                 {
                     continue;
                 }
@@ -648,6 +640,10 @@ namespace Parser_GUI
         public List<RecHitFraction> recHitFractionsParse()
         {
             List<RecHitFraction> dataList = new List<RecHitFraction>();
+            if (data["Collections"]["RecHitFractions_V1"] == null)
+            {
+                return dataList;
+            }
             foreach (var item in data["Collections"]["RecHitFractions_V1"])
             {
                 RecHitFraction thing = new RecHitFraction();
@@ -670,6 +666,10 @@ namespace Parser_GUI
         {
             List<List<RecHitFraction>> dataList = new List<List<RecHitFraction>>();
             int indexer = 0;
+            if (data["Associations"]["SuperClusterRecHitFractions_V1"] == null)
+            {
+                return dataList;
+            }
             foreach (var item in data["Associations"]["SuperClusterRecHitFractions_V1"])
             {
                 int index = item[0][1].Value<int>();
@@ -687,7 +687,10 @@ namespace Parser_GUI
         {
             List<SuperCluster> dataList = new List<SuperCluster>();
             int idNumber = 0;
-
+            if (data["Collections"]["SuperClusters_V1"] == null)
+            {
+                return dataList;
+            }
             foreach (var item in data["Collections"]["SuperClusters_V1"])
             {
                 SuperCluster cluster = new SuperCluster();
@@ -747,7 +750,10 @@ namespace Parser_GUI
         List<Vertex> vertexParse()
         {
             List<Vertex> dataList = new List<Vertex>();
-
+            if (data["Collections"]["Vertices_V1"] == null)
+            {
+                return dataList;
+            }
             foreach (var item in data["Collections"]["Vertices_V1"])
             {
                 var children = item.Children().Values<double>().ToList();
@@ -767,72 +773,63 @@ namespace Parser_GUI
 
             return dataList;
         }
-
-        public static void GenerateOBJ(List<(Point3D center, Point3D width)> ellipsoids, string filePath)
+        static (string obj, int vertexCount) GenerateEllipsoid(double[] center, double radiusX, double radiusY, double radiusZ, int offset)
         {
-            using (StreamWriter writer = new StreamWriter(filePath))
+            const int latitudeSegments = 18;
+            const int longitudeSegments = 36;
+            StringBuilder objBuilder = new StringBuilder();
+            int vertexCount = 0 + offset;
+
+            // Generate vertices
+            for (int lat = 0; lat <= latitudeSegments; lat++)
             {
-                int vertexCount = 1;
-                int objectCount = 1;
-                int current = 0;
+                double theta = lat * Math.PI / latitudeSegments;
+                double sinTheta = Math.Sin(theta);
+                double cosTheta = Math.Cos(theta);
 
-                foreach (var ellipsoid in ellipsoids)
+                for (int lon = 0; lon <= longitudeSegments; lon++)
                 {
-                    writer.WriteLine($"o Object{objectCount++}");
+                    double phi = lon * 2 * Math.PI / longitudeSegments;
+                    double sinPhi = Math.Sin(phi);
+                    double cosPhi = Math.Cos(phi);
 
-                    // Generate vertices
-                    List<Point3D> vertices = GenerateEllipsoidVertices(ellipsoid.center, ellipsoid.width);
+                    double x = center[0] + radiusX * sinTheta * cosPhi;
+                    double y = center[1] + radiusY * sinTheta * sinPhi;
+                    double z = center[2] + radiusZ * cosTheta;
 
-                    // Write vertices
-                    foreach (var vertex in vertices)
-                    {
-                        writer.WriteLine($"v {vertex.X} {vertex.Y} {vertex.Z}");
-                    }
-
-                    // Write faces
-                    int n = (int)Math.Sqrt(vertices.Count); // Assuming square grid
-                    for (int i = 0; i < n - 1; i++)
-                    {
-                        for (int j = 0; j < n - 1; j++)
-                        {
-                            int currentIndex = i * n + j + vertexCount;
-                            int nextIndex = currentIndex + 1;
-                            int bottomIndex = currentIndex + n;
-                            int nextBottomIndex = nextIndex + n;
-
-                            writer.WriteLine($"f {currentIndex} {nextIndex} {nextBottomIndex} {bottomIndex}");
-                        }
-
-                    }
-                    vertexCount += vertices.Count;
+                    objBuilder.AppendLine($"v {x} {y} {z}");
+                    vertexCount++;
                 }
             }
 
-            Console.WriteLine("OBJ file generated successfully.");
+            // Generate faces
+            for (int lat = 0; lat < latitudeSegments; lat++)
+            {
+                for (int lon = 0; lon < longitudeSegments; lon++)
+                {
+                    int first = (lat * (longitudeSegments + 1)) + lon + 1;
+                    int second = first + longitudeSegments + 1;
+
+                    objBuilder.AppendLine($"f {first + offset} {second + offset} {second + offset + 1}");
+                    objBuilder.AppendLine($"f {first + offset} {second + offset + 1} {first + offset + 1}");
+                }
+            }
+
+            return (objBuilder.ToString(), vertexCount);
         }
-
-        private static List<Point3D> GenerateEllipsoidVertices(Point3D center, Point3D width)
+        static string GenerateEllipsoidsObj(List<Vertex> vertices)
         {
-            List<Point3D> vertices = new List<Point3D>();
+            StringBuilder objBuilder = new StringBuilder();
+            int vertexOffset = 1;
 
-            int segments = 20; // Adjust as needed for smoother ellipsoids
-            double thetaStep = 2 * Math.PI / segments;
-            double phiStep = Math.PI / segments;
-
-            for (int i = 0; i <= segments; i++)
+            foreach (var vertex in vertices)
             {
-                double theta = i * thetaStep;
-                for (int j = 0; j <= segments; j++)
-                {
-                    double phi = j * phiStep;
-                    double x = center.X + width.X * Math.Sin(phi) * Math.Cos(theta);
-                    double y = center.Y + width.Y * Math.Sin(phi) * Math.Sin(theta);
-                    double z = center.Z + width.Z * Math.Cos(phi);
-                    vertices.Add(new Point3D(x, y, z));
-                }
+                var ellipsoidData = GenerateEllipsoid(vertex.pos, vertex.xError, vertex.yError, vertex.zError,vertexOffset);
+                objBuilder.Append(ellipsoidData.obj);
+                vertexOffset += ellipsoidData.vertexCount;
             }
 
-            return vertices;
+            return objBuilder.ToString();
         }
         void GenerateEllipsoidObj(string filePath, List<Vertex> vertexList, double sigmaFactor)
         {
@@ -884,7 +881,9 @@ namespace Parser_GUI
                     vertexNumber++;
                 }
             }
+
         }
+
     }
     struct Point3D
     {
@@ -899,5 +898,4 @@ namespace Parser_GUI
             Z = z;
         }
     }
-    
 }

@@ -141,8 +141,8 @@ namespace Parser_GUI
                 counter += 4;
             }
 
-            File.WriteAllText($"{eventTitle}\\8_Photons_V1.obj", String.Empty);
-            File.WriteAllLines($"{eventTitle}\\8_Photons_V1.obj", dataStrings);
+            File.WriteAllText($"{eventTitle}/8_Photons_V1.obj", String.Empty);
+            File.WriteAllLines($"{eventTitle}/8_Photons_V1.obj", dataStrings);
         }
         public List<string> trackCubicBezierCurve(List<TrackExtrasData> inputData, string objectName)
         {
@@ -332,14 +332,14 @@ namespace Parser_GUI
         {
             if (trackerMuonExtras == null && trackerMuonPoints == null)
             {
-                File.WriteAllText($"{eventTitle}\\1_trackerMuons.obj", String.Empty);
+                File.WriteAllText($"{eventTitle}/1_trackerMuons.obj", String.Empty);
                 return;
             }
             if (trackerMuonPoints == null)
             {
                 List<string> dataList = trackCubicBezierCurve(trackerMuonExtras, "TrackerMuons");
-                File.WriteAllText($"{eventTitle}\\1_TrackerMuons.obj", String.Empty);
-                File.WriteAllLines($"{eventTitle}\\1_TrackerMuons.obj", dataList);
+                File.WriteAllText($"{eventTitle}/1_TrackerMuons.obj", String.Empty);
+                File.WriteAllLines($"{eventTitle}/1_TrackerMuons.obj", dataList);
             }
             else
             {
@@ -382,14 +382,14 @@ namespace Parser_GUI
         {
             if (standaloneMuonExtras == null && standaloneMuonPoints == null)
             {
-                File.WriteAllText($"{eventTitle}\\3_standaloneMuons.obj", String.Empty);
+                File.WriteAllText($"{eventTitle}/3_standaloneMuons.obj", String.Empty);
                 return;
             }
             if (standaloneMuonPoints == null)
             {
                 List<string> dataList = trackCubicBezierCurve(standaloneMuonExtras, "standaloneMuons");
-                File.WriteAllText($"{eventTitle}\\3_standaloneMuons.obj", String.Empty);
-                File.WriteAllLines($"{eventTitle}\\3_standaloneMuons.obj", dataList);
+                File.WriteAllText($"{eventTitle}/3_standaloneMuons.obj", String.Empty);
+                File.WriteAllLines($"{eventTitle}/3_standaloneMuons.obj", dataList);
             }
             else
             {
@@ -429,8 +429,8 @@ namespace Parser_GUI
         {
             if (subTrackExtras == null) { return; }
             List<string> dataList = trackCubicBezierCurve(subTrackExtras, "Tracks");
-            File.WriteAllText($"{eventTitle}\\9_Tracks.obj", String.Empty);
-            File.WriteAllLines($"{eventTitle}\\9_Tracks.obj", dataList);
+            File.WriteAllText($"{eventTitle}/9_Tracks.obj", String.Empty);
+            File.WriteAllLines($"{eventTitle}/9_Tracks.obj", dataList);
         }
         public List<GsfElectron> electronParse()
         {
@@ -469,8 +469,8 @@ namespace Parser_GUI
         {
             if (electronExtras == null) { return; }
             List<string> dataList = trackCubicBezierCurve(electronExtras, "gsfElectrons");
-            File.WriteAllText($"{eventTitle}\\4_gsfElectrons.obj", String.Empty);
-            File.WriteAllLines($"{eventTitle}\\4_gsfElectrons.obj", dataList);
+            File.WriteAllText($"{eventTitle}/4_gsfElectrons.obj", String.Empty);
+            File.WriteAllLines($"{eventTitle}/4_gsfElectrons.obj", dataList);
         }
         public METData METParse()
         {

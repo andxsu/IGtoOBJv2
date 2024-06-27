@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks>net8.0-maccatalyst16.1;net8.0-maccatalyst16.1;net8.0-maccatalyst16.1</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>IGtoOBJParser</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -34,6 +34,13 @@
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
 	  <CreatePackage>false</CreatePackage>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-maccatalyst|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	  <DeviceSpecificBuild>true</DeviceSpecificBuild>
+	  <MtouchVerbosity>2</MtouchVerbosity>
+	  <MtouchInterpreter>all</MtouchInterpreter>
+	  <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
@@ -61,6 +68,7 @@
 		<PackageReference Include="MathNet.Numerics" Version="5.0.0" />
 		<PackageReference Include="MathNet.Spatial" Version="0.6.0" />
 		<PackageReference Include="CsvHelper" Version="32.0.3" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
