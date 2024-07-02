@@ -1,13 +1,15 @@
 ﻿<Properties StartupConfiguration="{B4265F27-B239-4444-AB47-7558700ABE96}|Default">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="MainPage.xaml">
+  <MonoDevelop.Ide.ItemProperties.Parser__GUI PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MainPage.xaml.cs">
     <Files>
-      <File FileName="MainPage.xaml" Line="41" Column="15" />
-      <File FileName="MainPage.xaml.cs" />
+      <File FileName="MainPage.xaml" Line="39" Column="20" />
       <File FileName="Unzip.cs" />
       <File FileName="MauiProgram.cs" />
       <File FileName="../../../../../.nuget/packages/communitytoolkit.maui/6.0.0/readme.txt" />
@@ -17,20 +19,23 @@
       <File FileName="BoxHandlers.cs" />
       <File FileName="LineHandlers.cs" />
       <File FileName="Log.txt" />
+      <File FileName="../../../../../../../usr/local/share/dotnet/sdk/7.0.403/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.EolTargetFrameworks.targets" />
+      <File FileName="../../../../../../../usr/local/share/dotnet/sdk/7.0.403/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" />
+      <File FileName="Cleanup.cs" Line="1" Column="1" />
+      <File FileName="MainPage.xaml.cs" Line="38" Column="28" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Parser_GUI">
             <Node name="Parser_GUI">
-              <Node name="MainPage.xaml" selected="True" />
+              <Node name="MainPage.xaml" expanded="True">
+                <Node name="MainPage.xaml.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Parser__GUI PreferredExecutionTarget="MyAppleMacCatalystID" />
 </Properties>

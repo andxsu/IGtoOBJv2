@@ -37,7 +37,7 @@ public partial class MainPage : ContentPage
     {
         base.OnAppearing();
         // Display an await message when the page appears
-        await DisplayAlert("Welcome", "To use: \n 1) Upload a file \n 2) Select a Run \n 3) Select an Event \n 4) Press Confirm", "OK");
+        await DisplayAlert("Welcome", "To use: \n 1) Upload a file \n 2) Select a Run \n 3) Select an Event \n 4) Press Confirm and Upload or Save to Device", "OK");
     }
     
     private async void OnCounterClicked(object sender, EventArgs e)
@@ -76,6 +76,8 @@ public partial class MainPage : ContentPage
         List<string> files = zipper.getFilesList(selectedFolderIndex);
         selectedFileIndex = eventPicker.SelectedIndex; //ISSUES
         filePath = files[selectedFileIndex];
+        ConfirmBtn.IsVisible = true;
+        SaveBtn.IsVisible = true;
     }
 
     async void OnConfirmClicked(System.Object sender, System.EventArgs e)

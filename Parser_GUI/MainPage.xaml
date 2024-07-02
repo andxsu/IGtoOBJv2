@@ -32,12 +32,15 @@
                 HorizontalOptions="Center" />
             <Button
                 x:Name="ConfirmBtn"
-                Text="Confirm"
+                Text="Confirm Selection and Upload to Headset"
                 Clicked="OnConfirmClicked"
+                IsVisible="False" 
                 HorizontalOptions="Center" />
             <Button
-                Text="Save Files"
+                x:Name="SaveBtn"
+                Text="Save Files To Computer"
                 Clicked="OnSaveFilesClicked"
+                IsVisible="False"
                 HorizontalOptions="Center" />
 
         </VerticalStackLayout>
